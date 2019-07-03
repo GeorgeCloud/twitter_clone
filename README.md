@@ -1,17 +1,14 @@
 # README
+# Twitter Clone
+# 7-3-19
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
+* Ruby version: 2.3.7(Default Mac Build)
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation: psql/sqlite3
 
 * Database initialization
 
