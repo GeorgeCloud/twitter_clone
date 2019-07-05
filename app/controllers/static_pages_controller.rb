@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    return "__home__"
   end
 
   def help
