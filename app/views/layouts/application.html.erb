@@ -7,9 +7,34 @@
     <%# (file_type, assets/<type>/filename, media="show to who", turbolinks="fast") %>
     <%= stylesheet_link_tag('application', { media: 'all', 'data-turbolinks-track': 'reload' }) %>
     <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload') %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar nav-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to image_tag("twitter_nav_logo.png", alt: "Twitter Nav Logo"), 'http://twitter.com/' %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Help",   '#' %></li>
+            <li><%= link_to "Log in", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- <br>
+    <footer>
+      <p>Twitter @2019</p>
+      <p>About</p>
+      <p>Contact</p>
+      <p>News</p>
+    </footer> -->
   </body>
 </html>

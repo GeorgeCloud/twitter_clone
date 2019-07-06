@@ -1,8 +1,17 @@
-<% provide(:title, "Home") %>
+<%= provide(:title, "Home") %>
 
-<h1>Twitter</h1>
-<p>
-  This is the home page for the actual
-  <a href="https://www.twitter.com/">Twitter</a>
-  Page.
-</p>
+<div class="center jumbotron">
+  <h1>Welcome</h1>
+
+  <h4>
+    Here's the link the acutal
+    <a href="https://www.twitter.com/">Twitter</a>
+    Page.
+  </h4>
+
+  <%= link_to "Sign Up Now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("logo.png", alt: "Twitter Logo"), 'http://twitter.com/' %>
+
+<!-- <a href="#" class="btn btn-lg btn-primary" %>Sign Up</a> -->
