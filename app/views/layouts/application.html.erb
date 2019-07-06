@@ -2,11 +2,7 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%# (file_type, assets/<type>/filename, media="show to who", turbolinks="fast") %>
-    <%= stylesheet_link_tag('application', { media: 'all', 'data-turbolinks-track': 'reload' }) %>
-    <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload') %>
+    <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
   </head>
 

@@ -15,11 +15,12 @@ textarea {
 
 .center {
   text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 10px;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -44,4 +45,28 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid lightblue;
+  a {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
