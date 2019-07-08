@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.7'
+# Local Version:
+# ruby '2.3.7'
+
+# Heroku Version:
+ruby '2.6.3'
 
 gem 'rails', '~> 5.2.3'
 gem 'bcrypt', '3.1.12'
