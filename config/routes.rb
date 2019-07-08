@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+
 
   #Routes '/' to Home Page
   root 'static_pages#home'
@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   # User Routes
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  resources :users
 end
