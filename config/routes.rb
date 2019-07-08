@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
 
   #Routes '/' to Home Page
   root 'static_pages#home'
