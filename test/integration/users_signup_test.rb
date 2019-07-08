@@ -14,7 +14,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
-    # assert_not flash.danger
+    # Expect flash is not empty
+    assert_not flash.empty?
   end
 
   # Validates Account is not created with Invalid Data
