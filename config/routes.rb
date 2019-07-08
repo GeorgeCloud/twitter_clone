@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'sessions/new'
   #Routes '/' to Home Page
   root 'static_pages#home'
   get '/contact', to: 'static_pages#contact'
