@@ -9,7 +9,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          email: "test@email.com",
                                          password: "testPassword",
                                          password_confirmation: "testPassword"
-
       }}
     end
     follow_redirect!
@@ -29,5 +28,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       }}
     end
     assert_template 'users/new'
+    assert is_logged_in?
   end
 end
