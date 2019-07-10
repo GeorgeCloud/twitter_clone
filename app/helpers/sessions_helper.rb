@@ -9,13 +9,15 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def current_user
-    # New Session
-    if (user_id = session[:user_id])
-      # Validate everytime current_user is active
-      @current_user ||= User.find_by(id: user_id)
-    # Check Cookies for persistent user / Log in & make current_user
-    elsif (user_id = cookies.signed[:user_id])
+
+    if (user_id = session[:user_id])                              # New Session
+      @current_user ||= User.find_by(id: user_id)                 # Validate everytime current_user is active
+    elsif (user_id = cookies.signed[:user_id])                    # Get Cookies(previous_session) then Login & current_user
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
         log_in user
@@ -29,17 +31,24 @@ module SessionsHelper
   end
 
   def forget(user)
-    # From User model: (OBJ).forget
-    user.forget
-    cookies.delete(:user_id)
-    cookies.delete(:remember_token)
-    # cookies.permanent.signed[:user_id] = nil
-    # cookies.permanent[:remember_token] = nil
+    user.forget                            # From User model: (OBJ).forget
+    cookies.delete(:user_id)               # cookies.permanent.signed[:user_id] = nil
+    cookies.delete(:remember_token)        # cookies.permanent[:remember_token] = nil
   end
 
   def log_out
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

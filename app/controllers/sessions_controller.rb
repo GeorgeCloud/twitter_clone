@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       # remember user
       remember(user) if params[:session][:remember_me] == '1'
-      redirect_to user_url(user)
+      redirect_back_or user
     else
       # Prompt User error_message
       flash.now[:danger] = "Log in credentials incorrect"
