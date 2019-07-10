@@ -1,20 +1,17 @@
 <%= provide(:title, "Home") %>
 
 <div class="center jumbotron">
-  <!-- !USER.logged_in -->
+
   <div class="signed-in">
     <h1>Welcome</h1>
 
     <h4>Here's the link the acutal
       <a href="https://www.twitter.com/">Twitter</a>Page.
     </h4>
-
+    <% if !logged_in? %>
     <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
   </div>
-  <!-- User.logged_in -->
-  <!-- <div class="signed-in">
-    <span>Signed In</span>
-  </div> -->
 
 </div>
 
