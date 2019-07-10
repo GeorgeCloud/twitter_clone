@@ -1,17 +1,21 @@
 <%= provide(:title, "Home") %>
 
 <div class="center jumbotron">
-  <h1>Welcome</h1>
+  <!-- !USER.logged_in -->
+  <div class="signed-in">
+    <h1>Welcome</h1>
 
-  <h4>
-    Here's the link the acutal
-    <a href="https://www.twitter.com/">Twitter</a>
-    Page.
-  </h4>
+    <h4>Here's the link the acutal
+      <a href="https://www.twitter.com/">Twitter</a>Page.
+    </h4>
 
-  <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <!-- User.logged_in -->
+  <!-- <div class="signed-in">
+    <span>Signed In</span>
+  </div> -->
+
 </div>
 
 <%= link_to image_tag("logo.png", alt: "logo"), 'http://twitter.com/' %>
-
-<!-- <a href="#" class="btn btn-lg btn-primary" %>Sign Up</a> -->
