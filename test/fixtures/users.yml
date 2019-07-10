@@ -4,6 +4,7 @@
 #   name: Michael Example
 #   email: michael@example.com
 #   password_digest: <%= User.Digest('password') %>
+#   admin: true
 
 # archer:
 #   name: Sterling Archer
