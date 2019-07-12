@@ -14,12 +14,11 @@ module SessionsHelper
   end
 
   def current_user
-
     if (user_id = session[:user_id])                              # New Session
       @current_user ||= User.find_by(id: user_id)                 # Validate everytime current_user is active
     elsif (user_id = cookies.signed[:user_id])                    # Get Cookies(previous_session) then Login & current_user
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end

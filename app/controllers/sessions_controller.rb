@@ -4,13 +4,17 @@ class SessionsController < ApplicationController
 
   def create
     # debugger
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user && @user.authenticate(params[:session][:password])
       # User log in and redirect_to
-      log_in user
-      # remember user
-      remember(user) if params[:session][:remember_me] == '1'
-      redirect_back_or user
+      if @user.activated?
+        log_in(@user)
+        remember(user) if params[:session][:remember_me] == '1'
+        redirect_back_or @user
+      else
+        flash.now[:danger] = "Your Account has not been validated. Check your email."
+        redirect_to root_url
+      end
     else
       # Prompt User error_message
       flash.now[:danger] = "Log in credentials incorrect"
