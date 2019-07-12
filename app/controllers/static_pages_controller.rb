@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    return "__home__"
+    @micropost = current_user.microposts.build if logged_in?
   end
 
   def help

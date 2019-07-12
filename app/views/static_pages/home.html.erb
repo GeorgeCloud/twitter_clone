@@ -1,5 +1,5 @@
 <%= provide(:title, "Home") %>
-
+<% if !logged_in? %>
 <div class="center jumbotron">
 
   <div class="signed-in">
@@ -9,10 +9,27 @@
       <a href="https://www.twitter.com/">Twitter</a> Page.
     </h4>
     <% if !logged_in? %>
-    <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Sign Up Now!", signup_path, class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 
 </div>
+
+<% else %>
+  <center>Home Feed</center>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% end %>
+
+
+
 
 <%= link_to image_tag("logo.png", alt: "logo"), 'http://twitter.com/' %>
