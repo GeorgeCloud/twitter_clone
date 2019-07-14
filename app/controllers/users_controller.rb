@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id]).name
-    # @user.microposts.delete_all
+    # @user.microposts.delete_all; Casacades at Commandline; DB!!
     flash[:success] = "Successfully Deleted All Tweets: #{@username}"
     User.find(params[:id]).destroy
     flash[:success] = "Successfully Deleted User: #{@username}"
