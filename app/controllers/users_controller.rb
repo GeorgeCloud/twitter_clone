@@ -52,10 +52,16 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def favorites
+    @title = "Favorites"
+    @user  = User.find(params[:id])
+    @tweets_favorited = []
+    render 'show_favorite'
+  end
+
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    # @users = @user.following.paginate(page: params[:page])
     @users = @user.following
     render 'show_follow'
   end
