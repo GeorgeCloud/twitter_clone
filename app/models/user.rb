@@ -8,8 +8,6 @@ class User < ApplicationRecord
                                   dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
-
   attr_accessor :remember_token, :activation_token, :reset_token
 
   # callback to fire when the user is created
@@ -50,7 +48,8 @@ class User < ApplicationRecord
   end
 
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
   end
 
   # Sends activation email.
